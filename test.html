@@ -2,91 +2,91 @@
 <html>
 
 <head>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <style>
-    #map {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-    }
-  </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        #map {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
 </head>
 
 <body>
-  <div id="map">
-    <div>
-      <script>
-        var map = L.map('map').setView([0, 0], 1); //starting position
-        L.tileLayer(`https://api.maptiler.com/maps/satellite/{z}/{x}/{y}.jpg?key=ikgsBohNpxFmZOGsfbj2`, { //style URL
-          attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
-        }).addTo(map);
-        let a1;
-function reqListener() {
-    a1 = this.responseText;
-    if (a1 != "" && a1 != undefined) {
-        console.log("Data retrieved");
-    }
-  }
-  
-const req = new XMLHttpRequest();
-req.addEventListener("load", reqListener);
-req.open("GET", "https://mps.geo-fs.com/map");
-req.send();
+    <div id="map">
+        <div>
+            <script>
+                var map = L.map('map').setView([0, 0], 1); //starting position
+                L.tileLayer(`https://api.maptiler.com/maps/satellite/{z}/{x}/{y}.jpg?key=ikgsBohNpxFmZOGsfbj2`, { //style URL
+                    attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
+                }).addTo(map);
+                let a1;
+                function reqListener() {
+                    a1 = this.responseText;
+                    if (a1 != "" && a1 != undefined) {
+                        console.log("Data retrieved");
+                    }
+                }
 
-let username = "DAL213(meatbroc)"
+                const req = new XMLHttpRequest();
+                req.addEventListener("load", reqListener);
+                req.open("GET", "https://mps.geo-fs.com/map");
+                req.send();
 
-if (username === "Foo" || username === "foo") {
-    console.log("Invalid username!")
-}
+                let username = "DAL213(meatbroc)"
 
-let a2;
-let a4;
-let a5;
-let a6;
+                if (username === "Foo" || username === "foo") {
+                    console.log("Invalid username!")
+                }
 
-req.addEventListener("load", function() {
-    if (a1.indexOf(`${username}`) !== -1) {
-        console.log(a1.indexOf(`${username}`));
-        a2 = a1.indexOf(`${username}`)
-    } else {
-        console.log("Username not found in data");
-        return
-    }
+                let a2;
+                let a4;
+                let a5;
+                let a6;
 
-
-
-    var a3 = a2 + 10;
-    console.log(a3);
-     while (a1[a3] !== "i") {
-        a3++
-    } 
-    console.log(a1[a3])
-    console.log(a1[a3+3])
-    console.log(a1[a3+4])
-    console.log(a1[a3+5])
-
-    a3++
-    a3++
-    a3++
-    a3++
-    a3++
-    a3++
-
-    while (!isNaN(a1[a3]) || a1[a3] === ".") {
-        a3++
-        console.log(a1[a3]);
-    }
-    a5 = a1.slice((a1.indexOf(`${username}`)) - 1, a3 + 1);
-    a6 = a5.slice(a5.indexOf("co") + 4, a5.indexOf("ve") - 2);
-});
+                req.addEventListener("load", function () {
+                    if (a1.indexOf(`${username}`) !== -1) {
+                        console.log(a1.indexOf(`${username}`));
+                        a2 = a1.indexOf(`${username}`)
+                    } else {
+                        console.log("Username not found in data");
+                        return
+                    }
 
 
-        var marker = L.marker([0, 0]).addTo(map);
-        // https://www.youtube.com/watch?v=wVnimcQsuwk&list=PLGHe6Moaz52PUNP4DtIshALDogSURIlYB
-      </script>
+
+                    var a3 = a2 + 10;
+                    console.log(a3);
+                    while (a1[a3] !== "i") {
+                        a3++
+                    }
+                    console.log(a1[a3])
+                    console.log(a1[a3 + 3])
+                    console.log(a1[a3 + 4])
+                    console.log(a1[a3 + 5])
+
+                    a3++
+                    a3++
+                    a3++
+                    a3++
+                    a3++
+                    a3++
+
+                    while (!isNaN(a1[a3]) || a1[a3] === ".") {
+                        a3++
+                        console.log(a1[a3]);
+                    }
+                    a5 = a1.slice((a1.indexOf(`${username}`)) - 1, a3 + 1);
+                    a6 = a5.slice(a5.indexOf("co") + 4, a5.indexOf("ve") - 2);
+                });
+
+
+                var marker = L.marker([a6[0], a6[1]).addTo(map);
+                // https://www.youtube.com/watch?v=wVnimcQsuwk&list=PLGHe6Moaz52PUNP4DtIshALDogSURIlYB
+            </script>
 </body>
 
 </html>
