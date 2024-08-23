@@ -46,6 +46,8 @@
                 let a4;
                 let a5;
                 let a6;
+                let a7;
+                let a8;
 
                 req.addEventListener("load", function () {
                     if (a1.indexOf(`${username}`) !== -1) {
@@ -86,10 +88,12 @@
                     } catch (e) {
                         console.error("Error parsing JSON:", e);
                     }
+                    a7 = a6[1]
+                    a8 = a6[1]
                 });
 
 
-                var marker = L.marker(a6[0], a6[1]).addTo(map);
+                var marker = L.marker(a7, a8).addTo(map);
                 // https://www.youtube.com/watch?v=wVnimcQsuwk&list=PLGHe6Moaz52PUNP4DtIshALDogSURIlYB
             </script>
 </body>
