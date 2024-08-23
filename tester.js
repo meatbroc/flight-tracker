@@ -11,7 +11,7 @@ req.addEventListener("load", reqListener);
 req.open("GET", "https://mps.geo-fs.com/map");
 req.send();
 
-let username = "meatbroc"
+let username = "DAL213(meatbroc)"
 
 if (username === "Foo" || username === "foo") {
     console.log("Invalid username!")
