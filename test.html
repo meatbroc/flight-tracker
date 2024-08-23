@@ -81,7 +81,11 @@
                     }
                     a5 = a1.slice((a1.indexOf(`${username}`)) - 1, a3 + 1);
                     a6 = a5.slice(a5.indexOf("co") + 4, a5.indexOf("ve") - 2);
-                    a6 = eval(a6)
+                    try {
+                        a6 = JSON.parse(a6);
+                    } catch (e) {
+                        console.error("Error parsing JSON:", e);
+                    }
                 });
 
 
