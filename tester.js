@@ -20,6 +20,7 @@ if (username === "Foo" || username === "foo") {
 let a2;
 let a4;
 let a5;
+let a6;
 
 req.addEventListener("load", function() {
     if (a1.indexOf(`${username}`) !== -1) {
@@ -53,7 +54,6 @@ req.addEventListener("load", function() {
         a3++
         console.log(a1[a3]);
     }
-    a5 = a1.slice((a1.indexOf(`${username}`)) - 1, a3 + 1)
+    a5 = a1.slice((a1.indexOf(`${username}`)) - 1, a3 + 1);
+    a6 = a5.slice(a5.indexOf("co") + 4, a5.indexOf("ve") - 2);
 });
-
-// 259
