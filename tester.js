@@ -53,7 +53,7 @@ req.addEventListener("load", function() {
         a3++
         console.log(a1[a3]);
     }
-    a5 = a1.slice((a1.indexOf(`${username}`)), a3 + 1)
+    a5 = a1.slice((a1.indexOf(`${username}`)) - 1, a3 + 1)
 });
 
 // 259
