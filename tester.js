@@ -63,6 +63,7 @@ req.addEventListener("load", function () {
     } catch (e) {
         console.error("Error parsing JSON:", e);
     }
-    a7 = a6[1]
+    a7 = a6[0]
     a8 = a6[1]
+
 });
