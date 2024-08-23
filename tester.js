@@ -4,8 +4,8 @@ function reqListener() {
     if (a1 != "" && a1 != undefined) {
         console.log("Data retrieved");
     }
-  }
-  
+}
+
 const req = new XMLHttpRequest();
 req.addEventListener("load", reqListener);
 req.open("GET", "https://mps.geo-fs.com/map");
@@ -21,8 +21,10 @@ let a2;
 let a4;
 let a5;
 let a6;
+let a7;
+let a8;
 
-req.addEventListener("load", function() {
+req.addEventListener("load", function () {
     if (a1.indexOf(`${username}`) !== -1) {
         console.log(a1.indexOf(`${username}`));
         a2 = a1.indexOf(`${username}`)
@@ -35,13 +37,13 @@ req.addEventListener("load", function() {
 
     var a3 = a2 + 10;
     console.log(a3);
-     while (a1[a3] !== "i") {
+    while (a1[a3] !== "i") {
         a3++
-    } 
+    }
     console.log(a1[a3])
-    console.log(a1[a3+3])
-    console.log(a1[a3+4])
-    console.log(a1[a3+5])
+    console.log(a1[a3 + 3])
+    console.log(a1[a3 + 4])
+    console.log(a1[a3 + 5])
 
     a3++
     a3++
@@ -61,4 +63,6 @@ req.addEventListener("load", function() {
     } catch (e) {
         console.error("Error parsing JSON:", e);
     }
+    a7 = a6[1]
+    a8 = a6[1]
 });
