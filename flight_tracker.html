@@ -17,21 +17,27 @@
 </head>
 <link rel="stylesheet" type="text/css" href="wip.css">
 <div class="rectangle">
-    <button onclick="hideUnhide()" class="mdl-button">USERNAME</button>
+    <button onclick="hideUnhide('menu');" class="mdl-button">USERNAME</button>
 </div>
 <div id="menu" class="hidden">
     <p class="heading">Username:</p>
-    <input type="text">
+    <input class="input1" type="text">
 </div>
 <script>
-    var element = document.querySelector("#menu");
-    function hideUnhide() {
-        if (document.querySelector("#menu").className == "hidden") {
+    var element;
+    function hideUnhide(elementId) {
+
+        element = document.querySelector(`#${elementId}`);
+
+        if (element.className == "hidden") {
             element.classList.replace("hidden", "shown");
-        } else {
+        } else if (element.className == "shown") {
             element.classList.replace("shown", "hidden");
+        } else {
+            console.log("Invalid class or id")
         }
-    }
+    } 
+    // takes the element specified in '' and switches its state. Usable for any element.
 </script>
 
 <body>
@@ -42,6 +48,14 @@
                 L.tileLayer(`https://api.maptiler.com/maps/satellite/{z}/{x}/{y}.jpg?key=ikgsBohNpxFmZOGsfbj2`, { //style URL
                     attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
                 }).addTo(map);
+                
+                var leafletIcon = L.icon ({
+                    iconUrl: 'https://www.geo-fs.com/images/map/icons/yellow.png',
+                    iconSize: [40, 40],
+                })
+                
+                
+
                 let a1;
                 function reqListener() {
                     a1 = this.responseText;
@@ -108,7 +122,7 @@
                 });
 
                 req.addEventListener("load", function () {
-                    var marker = L.marker([a7, a8]).addTo(map)
+                    var marker = L.marker([a7, a8],{icon:leafletIcon}).addTo(map)
                 });
                 // https://www.youtube.com/watch?v=wVnimcQsuwk&list=PLGHe6Moaz52PUNP4DtIshALDogSURIlYB
             </script>
