@@ -19,7 +19,10 @@
 <div class="rectangle">
     <button onclick="hideUnhide()" class="mdl-button">USERNAME</button>
 </div>
-<div id="menu" class="hidden"></div>
+<div id="menu" class="hidden">
+    <p class="heading">Username:</p>
+    <input type="text">
+</div>
 <script>
     var element = document.querySelector("#menu");
     function hideUnhide() {
@@ -86,12 +89,7 @@
                     console.log(a1[a3 + 4])
                     console.log(a1[a3 + 5])
 
-                    a3++
-                    a3++
-                    a3++
-                    a3++
-                    a3++
-                    a3++
+                    a3 += 6;
 
                     while (!isNaN(a1[a3]) || a1[a3] === ".") {
                         a3++
@@ -117,3 +115,9 @@
 </body>
 
 </html>
+
+<!--
+https://www.youtube.com/watch?v=lnh4qv8_uIU
+https://www.youtube.com/watch?v=XF1_MlZ5l6M
+https://www.youtube.com/watch?v=yv_WD9dv64M&list=PLDmvslp_VR0xjh7wGMNd_1kk0zUox6Sue&index=8
+-->
