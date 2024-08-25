@@ -13,7 +13,23 @@
             left: 0;
         }
     </style>
+    <title></title>
 </head>
+<link rel="stylesheet" type="text/css" href="wip.css">
+<div class="rectangle">
+    <button onclick="hideUnhide()" class="mdl-button">USERNAME</button>
+</div>
+<div id="menu" class="hidden"></div>
+<script>
+    var element = document.querySelector("#menu");
+    function hideUnhide() {
+        if (document.querySelector("#menu").className == "hidden") {
+            element.classList.replace("hidden", "shown");
+        } else {
+            element.classList.replace("shown", "hidden");
+        }
+    }
+</script>
 
 <body>
     <div id="map">
@@ -90,11 +106,11 @@
                     }
                     a7 = a6[0]
                     a8 = a6[1]
-                    
+
                 });
 
                 req.addEventListener("load", function () {
-                var marker = L.marker([a7, a8]).addTo(map)
+                    var marker = L.marker([a7, a8]).addTo(map)
                 });
                 // https://www.youtube.com/watch?v=wVnimcQsuwk&list=PLGHe6Moaz52PUNP4DtIshALDogSURIlYB
             </script>
