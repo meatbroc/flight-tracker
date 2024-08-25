@@ -45,12 +45,7 @@ req.addEventListener("load", function () {
     console.log(a1[a3 + 4])
     console.log(a1[a3 + 5])
 
-    a3++
-    a3++
-    a3++
-    a3++
-    a3++
-    a3++
+    a3 += 6;
 
     while (!isNaN(a1[a3]) || a1[a3] === ".") {
         a3++
