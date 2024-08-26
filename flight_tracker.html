@@ -226,6 +226,8 @@
                 document.getElementById("start").addEventListener("click", checkInterv);
                 document.getElementById("stop").addEventListener("click", stopTracking);
 
+                var latlngs;
+
                 // global ^
                 // mapper below
 
@@ -237,8 +239,9 @@
                 let a4;
                 let a5;
                 let a6;
-                let a7;
+                let a7 = 0;
                 let a8;
+                let a9;
 
                 x.registerListener(function (val) {
                     console.log("Username changed to", val);
@@ -295,15 +298,26 @@
                         } catch (e) {
                             console.error("Error parsing JSON:", e);
                         }
-                        a7 = a6[0]
-                        a8 = a6[1]
 
-                        var marker = L.marker([a7, a8], { icon: leafletIcon }).addTo(map)
+                        var marker = L.marker([a6[0], a6[1]], { icon: leafletIcon }).addTo(map)
                         /*
                         req.addEventListener("load", function () {
                             var marker = L.marker([a7, a8], { icon: leafletIcon }).addTo(map)
                         });
                         */
+                        if (a7 === 0) {
+                            a8 = [a6[0], a6[1]];
+                        } else if (a7 > 0) {
+                            a9 = a8;
+                            a8 = [a6[0], a6[1]];
+                            latlngs = [
+                                a8,
+                                a9,
+                            ];
+                            var path = L.polyline(latlngs, { "dashArray": [10, 20], "weight": 5, "color": "black" }).addTo(map);
+                            map.addLayer(path);
+                        }
+                        a7++;
                     })
                 };
             </script>
