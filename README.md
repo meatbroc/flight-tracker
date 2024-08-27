@@ -1,4 +1,4 @@
 # flight-tracker
-css is internal and flight path tracking exists now 🎉
+only one plane icon 🎉
 
 ui.chat.publish
