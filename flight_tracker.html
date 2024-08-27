@@ -101,6 +101,7 @@
         text-transform: uppercase;
         font-family: "Roboto", "Helvetica", "Arial", sans-serif;
         font-size: 14px;
+        font-weight: 500;
         z-index: 1002;
     }
 
@@ -192,6 +193,8 @@
                     iconUrl: 'https://www.geo-fs.com/images/map/icons/yellow.png',
                     iconSize: [40, 40],
                 })
+
+                var marker;
 
                 const x = {
                     usernameInternal: '',
@@ -299,7 +302,11 @@
                             console.error("Error parsing JSON:", e);
                         }
 
-                        var marker = L.marker([a6[0], a6[1]], { icon: leafletIcon }).addTo(map)
+                        if (marker) {
+                            marker.remove(marker)
+                        }
+
+                        marker = L.marker([a6[0], a6[1]], { icon: leafletIcon }).addTo(map)
                         /*
                         req.addEventListener("load", function () {
                             var marker = L.marker([a7, a8], { icon: leafletIcon }).addTo(map)
@@ -314,7 +321,7 @@
                                 a8,
                                 a9,
                             ];
-                            var path = L.polyline(latlngs, { "dashArray": [10, 20], "weight": 5, "color": "black" }).addTo(map);
+                            var path = L.polyline(latlngs, { "weight": 5, "color": "orange" }).addTo(map);
                             map.addLayer(path);
                         }
                         a7++;
@@ -324,3 +331,36 @@
 </body>
 
 </html>
+
+<!--
+
+var a = function(b) {
+        multiplayer.setNbUsers(b.userCount);
+        if (b && b.users) {
+            b.users.sort(function(x, z) {
+                try {
+                    var A = x.cs.toLowerCase()
+                      , n = z.cs.toLowerCase();
+                    return A > n ? 1 : A < n ? -1 : 0
+                } catch (r) {
+                    return 0
+                }
+            });
+            for (var c = $(".geofs-player-list"), d = c.is(":visible"), e = 0, f = "", g = 0, k = b.users.length; g < k; g++) {
+                var m = b.users[g]
+                  , p = m ? m.id : null;
+                if (p && multiplayer.myId != p) {
+                    var q = multiplayer.users[p] || new multiplayer.User(m);
+                    q.update(m, !0);
+                    d && ("Foo" == q.callsign ? e++ : f += '<li data-player="' + p + '">' + q.callsign + " (" + q.aircraftName + ")</li>")
+                }
+            }
+            d && (0 < e && (f += "<li>    ...and " + e + " Foos</li>"),
+            c.html(f))
+        }
+    };
+
+try using this to optimize the code
+rn it's super crowded for no reason
+
+-->
