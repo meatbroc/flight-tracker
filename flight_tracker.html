@@ -237,6 +237,8 @@
                 x.username = 'newUser'; // This will log: "Username changed to newUser"
                 console.log(x.username); // This will log: newUser
 
+                let planeImages;
+
                 let a1;
                 let a2;
                 let a4;
@@ -245,10 +247,13 @@
                 let a7 = 0;
                 let a8;
                 let a9;
+                let a10;
+                let a11;
 
                 x.registerListener(function (val) {
                     console.log("Username changed to", val);
                     mapUpdateJS();
+                    a7 = 0;
                 });
                 function mapUpdateJS() {
                     function reqListener() {
@@ -271,7 +276,6 @@
 
                     req.addEventListener("load", function () {
                         if (a1.indexOf(`${x.username}`) !== -1) {
-                            console.log(a1.indexOf(`${x.username}`));
                             a2 = a1.indexOf(`${x.username}`)
                         } else {
                             console.log("Username not found in data");
@@ -279,21 +283,16 @@
                         }
 
                         var a3 = a2 + 10;
-                        console.log(a3);
                         while (a1[a3] !== "i") {
                             a3++
                         }
-                        console.log(a1[a3])
-                        console.log(a1[a3 + 3])
-                        console.log(a1[a3 + 4])
-                        console.log(a1[a3 + 5])
 
                         a3 += 6;
 
                         while (!isNaN(a1[a3]) || a1[a3] === ".") {
                             a3++
-                            console.log(a1[a3]);
                         }
+
                         a5 = a1.slice((a1.indexOf(`${x.username}`)) - 1, a3 + 1);
                         a6 = a5.slice(a5.indexOf("co") + 4, a5.indexOf("ve") - 2);
                         try {
@@ -306,12 +305,8 @@
                             marker.remove(marker)
                         }
 
-                        marker = L.marker([a6[0], a6[1]], { icon: leafletIcon }).addTo(map)
-                        /*
-                        req.addEventListener("load", function () {
-                            var marker = L.marker([a7, a8], { icon: leafletIcon }).addTo(map)
-                        });
-                        */
+                        marker = L.marker([a6[0], a6[1]], { icon: leafletIcon}).addTo(map)
+
                         if (a7 === 0) {
                             a8 = [a6[0], a6[1]];
                         } else if (a7 > 0) {
@@ -324,6 +319,21 @@
                             var path = L.polyline(latlngs, { "weight": 5, "color": "orange" }).addTo(map);
                             map.addLayer(path);
                         }
+                        a10 = document.getElementsByClassName("leaflet-marker-icon leaflet-zoom-animated leaflet-interactive")[0]
+
+                        const checkElement = setInterval(() => {
+                            a10 = document.getElementsByClassName("leaflet-marker-icon leaflet-zoom-animated leaflet-interactive")[0];
+                            a11 = a10.style.cssText
+                            
+                            if (a11.indexOf("rotate") == -1) {
+                                const setStyle = (el, rule, val) => (el.style[rule] = val);
+                                setStyle(a10, 'transform', `${a10.style.transform} rotate(${a6[3]}deg)`);
+                                setStyle(a10, 'transform-origin', 'center');
+                            }
+                                
+                        }, 500); // Check every 100 milliseconds
+                        
+                        
                         a7++;
                     })
                 };
@@ -362,5 +372,6 @@ var a = function(b) {
 
 try using this to optimize the code
 rn it's super crowded for no reason
+
 
 -->
