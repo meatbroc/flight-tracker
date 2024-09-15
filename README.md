@@ -1,2 +1,3 @@
 # flight-tracker
-only one plane icon 🎉
+
+tracks a specific flight based on username input
